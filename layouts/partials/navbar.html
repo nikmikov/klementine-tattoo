@@ -1,0 +1,94 @@
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" id="nav-logo" class="font-serif text-2xl tracking-wide text-white transition-colors duration-300">
+      {{ i18n "hero_name" }}
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center space-x-12">
+      <div class="flex space-x-8">
+        <a href="#work" class="nav-link font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity text-white">
+          {{ i18n "nav_work" }}
+        </a>
+        <a href="#about" class="nav-link font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity text-white">
+          {{ i18n "nav_about" }}
+        </a>
+        <a href="#contact" class="nav-link font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity text-white">
+          {{ i18n "nav_contact" }}
+        </a>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="relative">
+        <button id="lang-toggle" class="flex items-center space-x-1 font-sans text-sm font-light hover:underline transition-all text-white">
+          <span>{{ .Site.Language.Lang | upper }}</span>
+          <svg class="w-3 h-3 transition-transform" id="lang-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        <div id="lang-menu" class="hidden absolute right-0 mt-2 py-2 w-24 bg-[#FAFAF8] shadow-lg rounded-sm border border-[#E8E5E0]">
+          {{ range .Site.Languages }}
+            {{ if eq .Lang $.Site.Language.Lang }}
+              <span class="block w-full text-left px-4 py-1.5 text-sm font-sans text-[#6B6B6B] bg-gray-50">
+                {{ .Lang | upper }}
+              </span>
+            {{ else }}
+              <a href="{{ $.RelPermalink | relLangURL }}" 
+                 hreflang="{{ .Lang }}"
+                 class="block w-full text-left px-4 py-1.5 text-sm font-sans text-[#1A1A1A] hover:bg-gray-50">
+                {{ .Lang | upper }}
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu button -->
+    <div class="md:hidden flex items-center space-x-4">
+      <button id="mobile-lang-toggle" class="font-sans text-sm font-light hover:underline text-white">
+        {{ .Site.Language.Lang | upper }}
+      </button>
+      <button id="mobile-menu-btn" class="text-white">
+        <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#FAFAF8] shadow-md border-t border-[#E8E5E0] md:hidden">
+    <div class="flex flex-col py-4 px-6 space-y-4">
+      <a href="#work" class="mobile-nav-link font-sans text-lg text-[#1A1A1A] tracking-wider uppercase">
+        {{ i18n "nav_work" }}
+      </a>
+      <a href="#about" class="mobile-nav-link font-sans text-lg text-[#1A1A1A] tracking-wider uppercase">
+        {{ i18n "nav_about" }}
+      </a>
+      <a href="#contact" class="mobile-nav-link font-sans text-lg text-[#1A1A1A] tracking-wider uppercase">
+        {{ i18n "nav_contact" }}
+      </a>
+      <!-- Mobile Language Options -->
+      <div class="pt-4 border-t border-[#E8E5E0]">
+        <div class="flex space-x-4">
+          {{ range .Site.Languages }}
+            {{ if eq .Lang $.Site.Language.Lang }}
+              <span class="font-sans text-sm text-[#6B6B6B]">{{ .Lang | upper }}</span>
+            {{ else }}
+              <a href="{{ $.RelPermalink | relLangURL }}" 
+                 class="font-sans text-sm text-[#1A1A1A] hover:text-[#6B6B6B] transition-colors">
+                {{ .Lang | upper }}
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

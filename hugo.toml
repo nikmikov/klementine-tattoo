@@ -1,0 +1,29 @@
+baseURL = 'https://klementina-tattoo.com'
+languageCode = 'en-us'
+title = 'Klementina Tattoo'
+theme = ''
+
+# Enable multi-language support
+defaultContentLanguage = 'en'
+
+[languages]
+  [languages.en]
+    weight = 1
+    title = 'Klementina Tattoo'
+    languageName = 'English'
+    contentDir = 'content/en'
+  [languages.de]
+    weight = 2
+    title = 'Klementina Tattoo'
+    languageName = 'Deutsch'
+    contentDir = 'content/de'
+
+[params]
+  description = 'Fine line tattoo artist based in Zurich, Switzerland'
+  author = 'Klementina'
+  instagram = 'klementina.tattoo'
+  
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

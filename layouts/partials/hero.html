@@ -1,0 +1,35 @@
+<section class="relative h-screen min-h-[600px] flex flex-col justify-center">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://images.unsplash.com/photo-1641402027551-6a2fbf05b356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXR0b28lMjBmaW5lJTIwbGluZSUyMGRhcmslMjBtb29keSUyMGhpZ2glMjBjb250cmFzdCUyMHNraW58ZW58MXx8fHwxNzcyNzk1NjcyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+      alt="Fine line tattoo art close up"
+      class="w-full h-full object-cover object-center"
+      onerror="this.style.display='none'"
+    />
+    <!-- Dark Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-start mt-20">
+    <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl text-white tracking-wide mb-4 opacity-90">
+      {{ i18n "hero_name" }}
+    </h1>
+    <p class="font-sans text-lg md:text-xl text-gray-200 tracking-[0.2em] font-light mb-12 uppercase">
+      {{ i18n "hero_sub" }}
+    </p>
+    
+    <a 
+      href="#contact" 
+      class="inline-flex items-center group font-sans text-sm md:text-base tracking-widest text-white uppercase"
+    >
+      <span class="border-b border-white/40 pb-1 group-hover:border-white transition-colors duration-300">
+        {{ i18n "hero_cta" }}
+      </span>
+      <svg class="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
+</section>

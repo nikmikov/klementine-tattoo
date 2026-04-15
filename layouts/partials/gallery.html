@@ -1,0 +1,65 @@
+{{ $galleryImages := slice
+  "https://images.unsplash.com/photo-1736628495264-2728d5582aa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5lJTIwbGluZSUyMHRhdHRvbyUyMGNsb3NlJTIwdXB8ZW58MXx8fHwxNzcyNzk1MTAxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  "https://images.unsplash.com/photo-1759346771288-ac905d1b1abf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwdGF0dG9vfGVufDF8fHx8MTc3Mjc0MjM4MHww&ixlib=rb-4.1.0&q=80&w=1080"
+  "https://images.unsplash.com/photo-1507737487170-feae809cb2ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb3R3b3JrJTIwdGF0dG9vfGVufDF8fHx8MTc3Mjc5NTY3Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  "https://images.unsplash.com/photo-1764605513384-25dbbffb29cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcm5hbWVudGFsJTIwdGF0dG9vfGVufDF8fHx8MTc3Mjc5NTY3Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  "https://images.unsplash.com/photo-1500458089283-8c282e703dac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWxpY2F0ZSUyMHRhdHRvb3xlbnwxfHx8fDE3NzI3OTU2NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  "https://images.unsplash.com/photo-1628969454009-843d2369e964?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwZ2VvbWV0cmljJTIwdGF0dG9vfGVufDF8fHx8MTc3Mjc4MTUzNHww&ixlib=rb-4.1.0&q=80&w=1080"
+}}
+
+<section id="work" class="py-32 px-6 lg:px-12 bg-[#FAFAF8] text-[#1A1A1A]">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-center mb-24 tracking-wide text-[#1A1A1A]">
+      {{ i18n "gallery_title" }}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+      {{ range $index, $src := $galleryImages }}
+        <div 
+          class="gallery-item group aspect-square relative bg-[#D9D5CF] overflow-hidden cursor-pointer"
+          data-src="{{ $src }}"
+          data-index="{{ $index }}"
+        >
+          <!-- Image -->
+          <img 
+            src="{{ $src }}" 
+            alt="Selected Work {{ add $index 1 }}"
+            class="gallery-img w-full h-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+            loading="lazy"
+            onerror="this.style.display='none'"
+          />
+          
+          <!-- Overlay with subtle ornament -->
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500 flex items-center justify-center">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white font-sans tracking-widest text-xs uppercase">
+              View
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Decorative divider at the bottom -->
+  <div class="max-w-3xl mx-auto mt-32 border-b border-[#E8E5E0]"></div>
+</section>
+
+<!-- Lightbox Overlay -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12 hidden opacity-0 transition-opacity duration-300">
+  <button 
+    id="lightbox-close"
+    class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+    aria-label="Close"
+  >
+    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  
+  <img 
+    id="lightbox-img"
+    src="" 
+    alt="Enlarged gallery item" 
+    class="max-w-full max-h-full object-contain shadow-2xl"
+  />
+</div>
