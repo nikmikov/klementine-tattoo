@@ -6,23 +6,6 @@ theme = []
 # Enable multi-language support
 defaultContentLanguage = 'en'
 
-[module]
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-  [[module.mounts]]
-    source = "content"
-    target = "content"
-  [[module.mounts]]
-    source = "static"
-    target = "static"
-  [[module.mounts]]
-    source = "layouts"
-    target = "layouts"
-  [[module.mounts]]
-    source = "i18n"
-    target = "i18n"
-
 [languages]
   [languages.en]
     weight = 1
