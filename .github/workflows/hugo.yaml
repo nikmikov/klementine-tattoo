@@ -79,11 +79,13 @@ jobs:
             hugo-
       - name: Build the site
         run: |
-          hugo build \
+          hugo \
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
+      - name: List build output
+        run: ls -la public/ && ls -la public/images/ || echo "No images directory"
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v5
