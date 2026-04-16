@@ -35,7 +35,7 @@
                 {{ .Lang | upper }}
               </span>
             {{ else }}
-              <a href="{{ $.RelPermalink | relLangURL }}" 
+              <a href="{{ .RelPermalink }}" 
                  hreflang="{{ .Lang }}"
                  class="block w-full text-left px-4 py-1.5 text-sm font-sans text-[#1A1A1A] hover:bg-gray-50">
                 {{ .Lang | upper }}
@@ -81,7 +81,7 @@
             {{ if eq .Lang $.Site.Language.Lang }}
               <span class="font-sans text-sm text-[#6B6B6B]">{{ .Lang | upper }}</span>
             {{ else }}
-              <a href="{{ $.RelPermalink | relLangURL }}" 
+              <a href="{{ .RelPermalink }}" 
                  class="font-sans text-sm text-[#1A1A1A] hover:text-[#6B6B6B] transition-colors">
                 {{ .Lang | upper }}
               </a>
