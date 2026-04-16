@@ -89,10 +89,10 @@ jobs:
       - name: Debug base URL and HTML
         run: |
           echo "Base URL: ${{ steps.pages.outputs.base_url }}"
-          echo "--- Gallery src attributes ---"
-          grep -o 'src="[^"]*IMG_[^"]*"' public/index.html | head -10 || echo "No gallery src found"
-          echo "--- data-src attributes ---"
-          grep -o 'data-src="[^"]*"' public/index.html | head -5 || echo "No data-src found"
+          echo "--- All image references ---"
+          cat public/index.html | tr '>' '\n' | grep -i 'img' | grep -i 'images' | head -5 || echo "No local images found in img tags"
+          echo "--- Any /images/ strings ---"
+          strings public/index.html | grep '/images/' | head -10 || echo "No /images/ strings found"
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v5
