@@ -89,7 +89,10 @@ jobs:
       - name: Debug base URL and HTML
         run: |
           echo "Base URL: ${{ steps.pages.outputs.base_url }}"
-          grep -o 'src="[^"]*images[^"]*"' public/index.html | head -5 || echo "No image src found"
+          echo "--- Gallery image paths ---"
+          grep -o 'IMG_[0-9]*\.JPG' public/index.html | head -5 || echo "No gallery images found"
+          echo "--- All src attributes ---"
+          grep -o 'src="[^"]*"' public/index.html | grep -E '(images|IMG_)' | head -10 || echo "No local images found"
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v5
