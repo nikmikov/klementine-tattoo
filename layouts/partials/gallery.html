@@ -37,12 +37,12 @@
       {{ range $index, $src := $galleryImages }}
         <div 
           class="gallery-item group aspect-square relative bg-[#D9D5CF] overflow-hidden cursor-pointer"
-          data-src="{{ $src | relURL }}"
+          data-src="{{ $src }}"
           data-index="{{ $index }}"
         >
           <!-- Image -->
           <img 
-            src="{{ $src | relURL }}" 
+            src="{{ $src }}" 
             alt="Selected Work {{ add $index 1 }}"
             class="gallery-img w-full h-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
             loading="lazy"

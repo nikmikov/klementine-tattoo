@@ -86,6 +86,10 @@ jobs:
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: List build output
         run: ls -la public/ && ls -la public/images/ || echo "No images directory"
+      - name: Debug base URL and HTML
+        run: |
+          echo "Base URL: ${{ steps.pages.outputs.base_url }}"
+          grep -o 'src="[^"]*images[^"]*"' public/index.html | head -5 || echo "No image src found"
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v5
