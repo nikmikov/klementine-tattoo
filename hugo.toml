@@ -1,9 +1,27 @@
 baseURL = 'https://klementina-tattoo.local'
 languageCode = 'en-us'
 title = 'Klementina Tattoo'
+theme = []
 
 # Enable multi-language support
 defaultContentLanguage = 'en'
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
 
 [languages]
   [languages.en]
@@ -31,16 +49,3 @@ defaultContentLanguage = 'en'
   [caches.images]
     dir = ':cacheDir/images'
 
-[module]
-  [[module.mounts]]
-    source = "content"
-    target = "content"
-  [[module.mounts]]
-    source = "static"
-    target = "static"
-  [[module.mounts]]
-    source = "layouts"
-    target = "layouts"
-  [[module.mounts]]
-    source = "i18n"
-    target = "i18n"
