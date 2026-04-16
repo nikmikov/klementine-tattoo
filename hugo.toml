@@ -1,7 +1,6 @@
-baseURL = 'https://klementina-tattoo.com'
+baseURL = 'https://klementina-tattoo.local'
 languageCode = 'en-us'
 title = 'Klementina Tattoo'
-theme = ''
 
 # Enable multi-language support
 defaultContentLanguage = 'en'
@@ -27,3 +26,7 @@ defaultContentLanguage = 'en'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
