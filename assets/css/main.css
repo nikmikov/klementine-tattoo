@@ -43,6 +43,52 @@ p, h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* ===== HERO BACKGROUND ===== */
+.hero-background {
+  background-color: #92e8ed;
+}
+
+.hero-background::before,
+.hero-background::after {
+  position: absolute;
+  left: 50%;
+  width: min(78rem, calc(100% - 3rem));
+  transform: translateX(-50%);
+  text-align: center;
+  color: #050005;
+  pointer-events: none;
+}
+
+.hero-background::before {
+  content: "klementina tattoo";
+  top: 7rem;
+  font-family: "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-shadow:
+    0.05em 0.06em 0 rgba(255, 255, 255, 0.9),
+    0.09em 0.1em 0 rgba(0, 0, 0, 0.12);
+}
+
+.hero-background::after {
+  content: "fine line - microrealism - ornamental";
+  top: 11.75rem;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  margin-top: 0;
+}
+
 /* ===== BACKGROUND COLORS ===== */
 .bg-\[\#FAFAF8\] {
   background-color: #FAFAF8;
@@ -905,6 +951,15 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* ===== MEDIA QUERIES ===== */
 @media (min-width: 768px) {
+  .hero-background::before {
+    font-size: 7rem;
+  }
+
+  .hero-background::after {
+    top: 14.25rem;
+    font-size: 1.45rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -947,6 +1002,15 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 1024px) {
+  .hero-background::before {
+    font-size: 8.5rem;
+  }
+
+  .hero-background::after {
+    top: 15.75rem;
+    font-size: 1.9rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
