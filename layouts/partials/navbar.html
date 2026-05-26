@@ -48,9 +48,18 @@
 
     <!-- Mobile menu button -->
     <div class="md:hidden flex items-center space-x-4">
-      <button id="mobile-lang-toggle" class="font-sans text-sm font-light hover:underline text-white">
-        {{ .Site.Language.Lang | upper }}
-      </button>
+      {{ range .Site.Languages }}
+        {{ if ne .Lang $.Site.Language.Lang }}
+          <a
+            id="mobile-lang-toggle"
+            href="{{ if eq .Lang "en" }}{{ $.Site.BaseURL }}{{ else }}{{ $.Site.BaseURL }}{{ .Lang }}/{{ end }}"
+            hreflang="{{ .Lang }}"
+            class="font-sans text-sm font-light hover:underline text-white"
+          >
+            {{ $.Site.Language.Lang | upper }}
+          </a>
+        {{ end }}
+      {{ end }}
       <button id="mobile-menu-btn" class="text-white">
         <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
