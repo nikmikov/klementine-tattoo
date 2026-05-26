@@ -1,5 +1,5 @@
 /* ===== FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Satisfy&display=swap');
 
 /* ===== BASE RESET ===== */
 *, *::before, *::after {
@@ -45,7 +45,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* ===== HERO BACKGROUND ===== */
 .hero-background {
-  background-color: #92e8ed;
+  background: #92e8ed url('/images/background.jpg') center / cover no-repeat;
 }
 
 .hero-background::before,
@@ -55,30 +55,30 @@ p, h1, h2, h3, h4, h5, h6 {
   width: min(78rem, calc(100% - 3rem));
   transform: translateX(-50%);
   text-align: center;
-  color: #050005;
+  color: #ffffff;
   pointer-events: none;
 }
 
 .hero-background::before {
-  content: "klementina tattoo";
-  top: 7rem;
-  font-family: "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive;
-  font-size: 4.5rem;
-  font-weight: 700;
+  content: "klementina\A tattoo";
+  top: 27vh;
+  font-family: "Satisfy", "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(4.75rem, 14.3vw, 11.75rem);
+  font-weight: 400;
   line-height: 0.9;
   letter-spacing: 0;
-  text-shadow:
-    0.05em 0.06em 0 rgba(255, 255, 255, 0.9),
-    0.09em 0.1em 0 rgba(0, 0, 0, 0.12);
+  white-space: pre-line;
+  text-shadow: 0.035em 0.045em 0 rgba(0, 0, 0, 0.55);
 }
 
 .hero-background::after {
   content: "fine line - microrealism - ornamental";
-  top: 11.75rem;
+  top: calc(27vh + clamp(14rem, 31vw, 25rem));
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.65rem);
+  font-weight: 300;
   line-height: 1.1;
+  text-shadow: 0.08em 0.09em 0.16em rgba(0, 0, 0, 0.7);
 }
 
 .hero-content {
@@ -87,6 +87,7 @@ p, h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 3rem;
   margin-top: 0;
+  display: none !important;
 }
 
 /* ===== BACKGROUND COLORS ===== */
@@ -952,12 +953,11 @@ p, h1, h2, h3, h4, h5, h6 {
 /* ===== MEDIA QUERIES ===== */
 @media (min-width: 768px) {
   .hero-background::before {
-    font-size: 7rem;
+    top: 36vh;
   }
 
   .hero-background::after {
-    top: 14.25rem;
-    font-size: 1.45rem;
+    top: calc(36vh + clamp(12rem, 24vw, 20rem));
   }
 
   .md\:block {
@@ -1002,15 +1002,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 1024px) {
-  .hero-background::before {
-    font-size: 8.5rem;
-  }
-
-  .hero-background::after {
-    top: 15.75rem;
-    font-size: 1.9rem;
-  }
-
   .lg\:flex {
     display: flex;
   }
